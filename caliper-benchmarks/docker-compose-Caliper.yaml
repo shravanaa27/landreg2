@@ -1,0 +1,39 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+networks:
+  test:
+    name: fabric_test
+
+services:
+    caliper:
+        container_name: caliper
+        image: hyperledger/caliper:0.5.0
+        command: launch manager
+        environment:
+        - CALIPER_BIND_SUT=fabric:2.2
+        - CALIPER_BENCHCONFIG=/home/shravan/Pictures/land2/caliper-benchmarks/benchmarks/scenario/simple/config.yaml
+        - CALIPER_NETWORKCONFIG=/home/shravan/Pictures/land2/caliper-benchmarks/networks/fabric/test-network.yaml
+        volumes:
+        - ~/caliper-benchmarks:/hyperledger/caliper/workspace
+
+
+
+
+# organizations:
+#   - mspid: Org1MSP
+#     # Identities come from cryptogen created material for test-network
+#     identities:
+#       certificates:
+#       - name: 'User1'
+#         clientPrivateKey:
+#           path: '../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore/priv_sk'
+#         clientSignedCert:
+#           path: '../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/signcerts/User1@org1.example.com-cert.pem'
+#     connectionProfile:
+#       path: '../fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/connection-org1.yaml'
+#       discover: true

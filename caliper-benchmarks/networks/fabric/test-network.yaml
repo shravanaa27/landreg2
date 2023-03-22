@@ -1,0 +1,26 @@
+name: Caliper Benchmarks
+version: "2.0.0"
+
+caliper:
+  blockchain: fabric
+
+channels:
+  # channelName of mychannel matches the name of the channel created by test network
+  - channelName: landchannel
+    # the chaincodeIDs of all the fabric chaincodes in caliper-benchmarks
+    contracts:
+    - id: fabland
+    
+organizations:
+  - mspid: sroMSP
+    # Identities come from cryptogen created material for test-network
+    identities:
+      certificates:
+      - name: 'User1'
+        clientPrivateKey:
+          path: '/home/shravan/Pictures/land2/Fabric-network/organizations/peerOrganizations/sro.land.com/users/User1@sro.land.com/msp/keystore/5f53d9c36c18e1b5ed5fa7d6b90f7daeba89f3079783302fa2d14c9e16cc65bc_sk'
+        clientSignedCert:
+          path: '/home/shravan/Pictures/land2/Fabric-network/organizations/peerOrganizations/sro.land.com/users/User1@sro.land.com/msp/signcerts/cert.pem'
+    connectionProfile:
+      path: '/home/shravan/Pictures/land2/Fabric-network/organizations/peerOrganizations/sro.land.com/connection-sro.yaml'
+      discover: true

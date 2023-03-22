@@ -52,7 +52,7 @@ function Login() {
       setshowRoleError(false);
     }
 
-    if (role === "sro" && userid === "sro1","sro2" && password === "password","password") {
+    if (role === "sro" && userid === "sro1","sro2","sro3" && password === "password","password","password") {
       setshowIdpassmismatchError(false);
       setShowAlert(true);
       navigate("/sroAddLand");
